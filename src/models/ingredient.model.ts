@@ -1,7 +1,10 @@
 import { model, Schema } from "mongoose";
 
-const ingredientSchema = new Schema({
-  name: String,
+const IngredientSchema = new Schema({
+  name: {
+    type: String,
+    unique: true,
+  },
 });
 
-export default model("Ingredient", ingredientSchema);
+export default model("Ingredient", IngredientSchema);

@@ -6,17 +6,18 @@ import {
   getIngredientById,
   updateIngredient,
 } from "../controllers/ingredient.controller";
+import validateObjectIdMiddleware from "../middlewares/validateObjectIdMiddleware";
 
 const router = Router();
 
 router.get("/", getAllIngredients);
 
-router.get("/:id", getIngredientById);
+router.get("/:id", validateObjectIdMiddleware, getIngredientById);
 
 router.post("/", createIngredient);
 
-router.put("/:id", updateIngredient);
+router.put("/:id", validateObjectIdMiddleware, updateIngredient);
 
-router.delete("/:id", deleteIngredient);
+router.delete("/:id", validateObjectIdMiddleware, deleteIngredient);
 
 export default router;

@@ -1,8 +1,11 @@
 import { model, Schema } from "mongoose";
 
-const unitSchema = new Schema({
-  name: String,
+const UnitSchema = new Schema({
+  name: {
+    type: String,
+    unique: true,
+  },
   description: String,
 });
 
-export default model("Unit", unitSchema);
+export default model("Unit", UnitSchema);
